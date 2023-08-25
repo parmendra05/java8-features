@@ -1,5 +1,6 @@
 package lambda;
 
+import java.util.function.Function;
 import java.util.function.Predicate;
 
 public class Test_2 {
@@ -18,6 +19,13 @@ public class Test_2 {
 
 		System.out.println(str.test("asdfgh"));
 		System.out.println(str.test("ab"));
+
+		// Examples of Function
+		
+		// 1st args is Input Type & 2nd args is Return Type
+		Function<String, Integer> myFunction = s -> s.length();
+		System.out.println(myFunction.apply("Parmendra"));
+		System.out.println(myFunction.apply("Kumar"));
 
 	}
 
