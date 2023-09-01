@@ -1,5 +1,6 @@
 package stream;
 
+import java.util.Comparator;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -10,8 +11,11 @@ public class Demo_2 {
 
 		List<Integer> list = List.of(85, 90, 25, 55, 32, 26, 71, 19, 62, 29);
 
-		// Sorted Order
+		// Sorted Order By ASC 
 		List<Integer> sortedList = list.stream().sorted().collect(Collectors.toList());
+		
+		// Sorted Order By DESC
+		List<Integer> descList = list.stream().sorted(Comparator.reverseOrder()).collect(Collectors.toList());
 
 		// Note : count always return Long Type
 		Long count = list.stream().count();
@@ -28,7 +32,8 @@ public class Demo_2 {
 		Optional<Integer> minValue = list.stream().min(Integer::compareTo);
 
 		System.out.println("Given List : " + list);
-		System.out.println("Sorted List : " + sortedList);
+		System.out.println("Sorted List By ASC: " + sortedList);
+		System.out.println("Sorted List By DESC: " + descList);
 		System.out.println("Total Elements : " + count);
 		System.out.println("Total Elements grater than 50 : " + num);
 		System.out.println("Max Value : " + maxValue);
