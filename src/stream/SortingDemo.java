@@ -37,6 +37,14 @@ public class SortingDemo {
 
 		System.out.println("----  Sorting by ID ----");
 		books.stream().sorted(Comparator.comparing(Book::getId)).forEach(System.out::println);
+		
+		System.out.println("----  find a book whose price above 800 and name as ASC order ----");
+		books.stream().filter(book -> book.getPrice() >800).sorted(Comparator.comparing(Book::getName))
+		.forEach(System.out::println);
+		
+		System.out.println("----  find a book whose price above 800 and name as DESC order ----");
+		books.stream().filter(book -> book.getPrice() >800).sorted(Comparator.comparing(Book::getName).reversed())
+		.forEach(System.out::println);
 	}
 
 }
