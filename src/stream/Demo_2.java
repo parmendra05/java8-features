@@ -1,5 +1,6 @@
 package stream;
 
+import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Optional;
@@ -11,9 +12,9 @@ public class Demo_2 {
 
 		List<Integer> list = List.of(85, 90, 25, 55, 32, 26, 71, 19, 62, 29);
 
-		// Sorted Order By ASC 
+		// Sorted Order By ASC
 		List<Integer> sortedList = list.stream().sorted().collect(Collectors.toList());
-		
+
 		// Sorted Order By DESC
 		List<Integer> descList = list.stream().sorted(Comparator.reverseOrder()).collect(Collectors.toList());
 
@@ -39,6 +40,13 @@ public class Demo_2 {
 		System.out.println("Max Value : " + maxValue);
 		System.out.println("Min Value : " + minValue);
 
+		System.out.println("-----------------------------------------------");
+
+		List<Integer> data = Arrays.asList(5, 1, 9, 7, 2, 8, 1, 5, 7, 15, 2);
+
+		// Sum of all the elements
+		Integer sum = data.stream().mapToInt(Integer::intValue).sum();
+		System.out.println("Sum of all elements : "+sum);
 	}
 
 }
