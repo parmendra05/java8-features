@@ -45,7 +45,7 @@ public class Demo_2 {
 
 		System.out.println("-----------------------------------------------");
 
-		List<Integer> data = Arrays.asList(5, 1, 9, 7, 2, 8, 1, 5, 7, 15, 2);
+		List<Integer> data = Arrays.asList(5, 1, 9, 7, 2, 8, 1, 5, 7, 15, 2, 1, 2, 1);
 
 		// Sum of all the elements
 		Integer sum = data.stream().mapToInt(Integer::intValue).sum();
@@ -58,6 +58,13 @@ public class Demo_2 {
 		// Using Stream
 		System.out.println("Original Data is - " + data);
 		data.stream().collect(Collectors.toSet()).forEach(a -> System.out.print(a + ","));
+
+		// Find only duplicate elements from data
+		System.out.println(" \nDuplicate elements");
+		Set<Integer> tempset = new HashSet<>();
+		Set<Integer> myset = data.stream().filter(a -> !tempset.add(a)).collect(Collectors.toSet());
+		System.out.println(myset);
+
 	}
 
 }
