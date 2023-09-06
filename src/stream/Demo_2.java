@@ -1,9 +1,12 @@
 package stream;
 
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.Comparator;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Optional;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 public class Demo_2 {
@@ -46,7 +49,15 @@ public class Demo_2 {
 
 		// Sum of all the elements
 		Integer sum = data.stream().mapToInt(Integer::intValue).sum();
-		System.out.println("Sum of all elements : "+sum);
+		System.out.println("Sum of all elements : " + sum);
+
+		// Remove duplicate elements from data
+		Set<Integer> set = new HashSet<>(data); // Using Set
+		System.out.println(set);
+
+		// Using Stream
+		System.out.println("Original Data is - " + data);
+		data.stream().collect(Collectors.toSet()).forEach(a -> System.out.print(a + ","));
 	}
 
 }
