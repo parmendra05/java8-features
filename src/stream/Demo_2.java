@@ -64,6 +64,13 @@ public class Demo_2 {
 		Set<Integer> tempset = new HashSet<>();
 		Set<Integer> myset = data.stream().filter(a -> !tempset.add(a)).collect(Collectors.toSet());
 		System.out.println(myset);
+		
+		// Remove duplicate elements without using set
+		List<Integer> demoList = Arrays.asList(5, 1, 9, 7, 2, 8, 1, 5, 7, 15, 2, 1, 2, 1);
+		List<Integer> uniqueDemoList = demoList.stream().distinct().collect(Collectors.toList());
+		
+		System.out.println("given list : "+demoList);
+		System.out.println("updated list"+uniqueDemoList);
 
 	}
 
