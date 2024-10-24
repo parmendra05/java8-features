@@ -1,9 +1,6 @@
 package stream;
 
-import java.util.Arrays;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -39,6 +36,35 @@ public class CollectorsMethods {
 
 		Map<String,Integer> result = items.stream().collect(Collectors.toMap(a -> a , a -> a.length()));
 		System.out.println(result); // {Apple=5, kiwi=4, Orange=6, Banana=6}
+
+
+		//mapping() : Applies a mapping function before collecting
+		List<String> fruits = List.of("Apple", "Banana", "Orange", "Kiwi","Mango");
+		//List<Integer> lengthOfFruits = fruits.stream().map(String::length).toList();
+		List<Integer> lengthOfFruits = fruits.stream().collect(Collectors.mapping(fruit -> fruit.length(), Collectors.toList() ));
+		System.out.println("Length of Fruits in a List : "+lengthOfFruits);
+
+		//counting() : Counts the number of elements in a stream.
+		//int totalCount=  fruits.size();
+		//Long totalCount = fruits.stream().count();
+		Long totalCount = fruits.stream().collect(Collectors.counting());
+
+		System.out.println("Total Fruits : "+totalCount);
+
+
+		//joining() : Concatenates the stream of strings.
+		List <String> words = Arrays.asList("Hi", "How", "Are", "You");
+		//String output= words.stream().collect(Collectors.joining( " "));
+		String output= String.join(" ", words);
+		System.out.println(output);
+
+
+		//summarizingInt() : Provides statistical summary for int values.
+		List<Integer> integers = List.of(10,20,30,15,5);
+		IntSummaryStatistics summaryStatistics = integers.stream().collect(Collectors.summarizingInt(Integer::intValue));
+		System.out.println("Summary  :  "+summaryStatistics);
+		// Output : Summary  :  IntSummaryStatistics{count=5, sum=80, min=5, average=16.000000, max=30}
+
 
 	}
 
