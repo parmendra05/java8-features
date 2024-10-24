@@ -66,6 +66,36 @@ public class CollectorsMethods {
 		// Output : Summary  :  IntSummaryStatistics{count=5, sum=80, min=5, average=16.000000, max=30}
 
 
+		/*
+		groupingBy() method helps you create a map, where:
+        The key represents the category (the characteristic you want to group by).
+        The value is a list of all the items that fall into that category.
+		 */
+
+		List<String> nameLists = List.of("Amanda", "Eliana", "Manjunathan","Alisa", "Anshu","Mangesh");
+		// Group names by the first character
+		Map<Character,List<String>> namesGroup= nameLists.stream().collect(Collectors.groupingBy(name -> name.charAt(0)));
+		System.out.println("namesGroup  : "+namesGroup);
+		//output : A=[Amanda, Alisa, Anshu], E=[Eliana], M=[Manjunathan, Mangesh]}
+
+
+		List<Integer> numbers = List.of(1,2,3,4,5,6,7,12,23,45,50,60);
+       // Group numbers by even and odd
+		Map<String, List<Integer>> output2 = numbers.stream()
+				.collect(Collectors.groupingBy(val -> (val % 2 == 0) ? "Even" : "Odd"));
+		System.out.println(output2);
+		// {Even=[2, 4, 6, 12, 50, 60], Odd=[1, 3, 5, 7, 23, 45]}
+
+
+		/*
+		 Group employees by department
+        Map<String, List<Employee>> employeesByDept = employees.stream()
+            .collect(Collectors.groupingBy(e -> e.department));
+
+        System.out.println(employeesByDept);
+        // Output: {HR=[Alice, Eve], IT=[Bob, Charlie], Finance=[David]}
+		 */
+
 	}
 
 }
