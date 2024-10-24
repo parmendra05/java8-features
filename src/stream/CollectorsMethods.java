@@ -96,6 +96,13 @@ public class CollectorsMethods {
         // Output: {HR=[Alice, Eve], IT=[Bob, Charlie], Finance=[David]}
 		 */
 
+		//partitioningBy() : Partitions elements into two groups based on a given condition (predicate).
+		// It returns a Map<Boolean, List<T>> where the key is true for elements that match the predicate and false for those that do not.
+
+		List<Integer> numbers2 = List.of(1,2,3,4,5,6,7,12,23,45,50,60);
+		Map<Boolean,List<Integer>> partitionedElement = numbers2.stream().collect(Collectors.partitioningBy(n -> n%2 == 0));
+		System.out.println(partitionedElement);
+		// output : {false=[1, 3, 5, 7, 23, 45], true=[2, 4, 6, 12, 50, 60]}
 	}
 
 }
