@@ -2,6 +2,18 @@ package stream;
 
 import java.util.ArrayList;
 import java.util.List;
+/*
+Stream API provides two ways of processing data: sequential streams and parallel streams.
+
+Sequential Stream:
+Processes data one by one (in a single thread). Good for smaller datasets or when the order of processing matters.
+
+Parallel Stream:
+Breaks the task into smaller pieces and works on them simultaneously in multiple threads. Useful for large datasets.
+
+
+
+ */
 
 public class ParallelStream {
     public static void main(String[] args) {
